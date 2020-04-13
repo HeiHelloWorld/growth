@@ -3,17 +3,25 @@ import Router from "vue-router";
 
 Vue.use(Router)
 
-export const router = new Router({
+export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/home',
-      component: () => import('/src/views/home/home.vue'),
-      name: 'Home'
+      component: () => import('../views/home/home.vue'),
+      name: 'Home',
+      meta: {}
     },
     {
       path: '/main',
-      component: () => import('/src/views/main/main.vue'),
-      name: 'Main'
+      component: () => import('../views/main/main.vue'),
+      name: 'Main',
+      meta: {}
+    },
+    
+    {
+      path: '/',
+      redirect: '/home'
     }
   ]
 })
