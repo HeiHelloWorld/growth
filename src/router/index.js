@@ -1,27 +1,43 @@
-import Vue from 'vue';
-import Router from "vue-router";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/home/home.vue'
+import error_404 from '../views/error/404.vue'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home,
+    meta: {},
+    children: [
+      {
+        path: '/a',
+        name: 'A',
+        component: () => import('../views/home/a.vue')
+      },
+      {
+        path: '/b',
+        name: 'B',
+        component: () => import('../views/home/b.vue')
+      }
+    ]
+  },
+  {
+    path: '/main/:username',
+    name: 'Main',
+    component: () => import('../views/main/main.vue')
+  },
+  {
+    path: '*',
+    component: error_404
+  }
+]
+
+const router = new VueRouter({
   mode: 'history',
-  routes: [
-    {
-      path: '/home',
-      component: () => import('../views/home/home.vue'),
-      name: 'Home',
-      meta: {}
-    },
-    {
-      path: '/main',
-      component: () => import('../views/main/main.vue'),
-      name: 'Main',
-      meta: {}
-    },
-    
-    {
-      path: '/',
-      redirect: '/home'
-    }
-  ]
+  routes
 })
+
+export default router

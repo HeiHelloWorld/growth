@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <div>{{msg}}</div>
+    <router-link to="/a">go to A</router-link> |
+    <router-link to="/b">go to B</router-link>
+    <div style="height:800px;"><router-view></router-view></div>
   </div>
 </template>
 
@@ -9,13 +11,17 @@ export default {
   name: 'Home',
   data() {
     return {
-      msg: '主页'
+
     }
   }
 
 }
 </script>
 
-<style>
-
+<style scoped>
+.container {
+  width: 100%;
+  height: 100%;
+  /* background: #ff8899; */
+}
 </style>
