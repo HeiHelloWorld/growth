@@ -1,20 +1,38 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <!-- <router-link to="/main/tianfu">Main</router-link> | -->
-      <router-link :to="{name: 'Main', params: { username }}">Main</router-link>
-    </div>
-    <router-view />
+    <el-container>
+      <el-header height="80px">
+        <layout-header />
+      </el-header>
+      <el-container>
+        <el-aside v-if="$route.meta.showAside" width="200px">
+          <layout-aside />
+        </el-aside>
+        <el-main>
+          <router-view />
+        </el-main>
+      </el-container>
+      <el-footer height="300px">
+        <layout-footer />
+      </el-footer>
+    </el-container>
   </div>
 </template>
 
 <script>
+import LayoutHeader from '@/layout/header/header.vue'
+import LayoutAside from '@/layout/aside/aside.vue'
+import LayoutFooter from '@/layout/footer/footer.vue'
 export default {
   name: 'App',
+  components: {
+    LayoutHeader,
+    LayoutAside,
+    LayoutFooter
+  },
   data() {
     return {
-      username: 'tianfu'
+
     }
   }
 }
@@ -29,16 +47,45 @@ export default {
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.el-header {
+  line-height: 80px;
+  background-color: rgb(210, 227, 243);
+  color: #333;
+  text-align: center;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.el-footer {
+  line-height: 300px;
+  background-color: rgb(210, 227, 243);
+  color: #333;
+  text-align: center;
+}
+  
+.el-aside {
+  /* background-color: #D3DCE6; */
+  color: #333;
+  text-align: center;
+  /* line-height: 200px; */
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.el-main {
+  /* background-color: #E9EEF3; */
+  color: #333;
+  text-align: center;
+  /* line-height: 160px; */
 }
+
+body > .el-container {
+  margin-bottom: 40px;
+}
+
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {
+  line-height: 260px;
+}
+
+.el-container:nth-child(7) .el-aside {
+  line-height: 320px;
+}
+
 </style>

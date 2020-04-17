@@ -1,21 +1,23 @@
 <template>
-  <div class="container">{{error}}</div>
+  <div class="container">
+    footer
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Error',
+  name: 'Footer',
   data() {
     return {
-      error: 'Error: 404 页面不存在'
+      
     }
   }
+
 }
 </script>
 
 <style lang="scss" scoped>
 .container {
   width: 100%;
-  height: 600px;
 }
 </style>

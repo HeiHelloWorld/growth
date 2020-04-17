@@ -10,27 +10,43 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    meta: {},
+    meta: {
+      showAside: false
+    },
     children: [
       {
         path: '/a',
         name: 'A',
-        component: () => import('../views/home/a.vue')
+        component: () => import('@/views/home/components/a.vue')
       },
       {
         path: '/b',
         name: 'B',
-        component: () => import('../views/home/b.vue')
+        component: () => import('@/views/home/components/b.vue')
       }
     ]
   },
   {
     path: '/main/:username',
     name: 'Main',
-    component: () => import('../views/main/main.vue')
+    meta: {
+      showAside: true
+    },
+    component: () => import('@/views/main/main.vue')
+  },
+  {
+    path: '/aa',
+    name: 'Aa',
+    meta: {
+      showAside: true
+    },
+    component: () => import('@/views/es5/js/aa.vue')
   },
   {
     path: '*',
+    meta: {
+      showAside: false
+    },
     component: error_404
   }
 ]
