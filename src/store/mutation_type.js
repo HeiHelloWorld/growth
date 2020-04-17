@@ -1,0 +1,1 @@
+export const CHANGE_ASIDE = 'change_aside'

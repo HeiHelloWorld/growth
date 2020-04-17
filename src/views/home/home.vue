@@ -1,8 +1,7 @@
 <template>
   <div class="container">
-    <router-link to="/a">go to A</router-link> |
-    <router-link to="/b">go to B</router-link>
-    <div class="wrap"><router-view></router-view></div>
+    <h2>Home</h2>
+    <div class="wrap"></div>
   </div>
 </template>
 

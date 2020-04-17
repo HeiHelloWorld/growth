@@ -51,21 +51,38 @@
     </el-aside>
   </div> -->
   <div class="container1">
-    <router-link to="/">Home</router-link>
+    <div class="every-router" v-for="(item, index) in currentChildrenRouter" :key="index">
+      <router-link :to="item.path">{{item.meta.title}}</router-link>
+    </div>
+    <!-- <router-link to="/">Home</router-link>
     <router-link :to="{name: 'Main', params: { username }}">Main</router-link>
-    <router-link :to="{name: 'Aa' }">Aa</router-link>
+    <router-link :to="{name: 'Aa' }">Aa</router-link> -->
   </div>
 </template>
 
 <script>
+
+// import { EventBus } from '@/event_bus.js'
+
 export default {
   name: 'Aside',
   data() {
     return {
-      username: 'tianfu'
+      username: 'tianfu',
+      // currentChildrenRouter: []
     }
+  },
+  computed: {
+    currentChildrenRouter() {
+      return this.$store.state.currentChildrenRouter
+    }
+  },
+  mounted() {
+    // EventBus.$on('asideRouter', params => {
+    //   console.log('children', params)
+    //   this.currentChildrenRouter = params.secondRouter
+    // })
   }
-
 }
 </script>
 

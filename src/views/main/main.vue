@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    main.vue
+    <h2>Main</h2>
+    <router-link to="/main/a">go to A</router-link> |
+    <router-link to="/main/b">go to B</router-link>
+    <div class="wrap"><router-view></router-view></div>
     <!-- <el-container style="height: 600px; border: 1px solid #eee">
       <el-container>
         <el-header style="text-align: right; font-size: 12px">
@@ -44,10 +47,12 @@ export default {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .container {
   width: 100%;
-  height: 1000px;
+  .wrap {
+    height: 510px;
+  }
 }
 .el-header {
   background-color: #B3C0D1;

@@ -11,40 +11,53 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
+      title: 'Home',
       showAside: false
-    },
-    children: [
-      {
-        path: '/a',
-        name: 'A',
-        component: () => import('@/views/home/components/a.vue')
-      },
-      {
-        path: '/b',
-        name: 'B',
-        component: () => import('@/views/home/components/b.vue')
-      }
-    ]
+    }
   },
   {
-    path: '/main/:username',
+    path: '/main',
     name: 'Main',
     meta: {
+      title: 'Main',
       showAside: true
     },
-    component: () => import('@/views/main/main.vue')
+    component: () => import('@/views/main/main.vue'),
+    children: [
+      {
+        path: '/main/a',
+        name: 'A',
+        meta: {
+          title: 'A',
+          showAside: true
+        },
+        component: () => import('@/views/main/components/a.vue')
+      },
+      {
+        path: '/main/b',
+        name: 'B',
+        meta: {
+          title: 'B',
+          showAside: true
+        },
+        component: () => import('@/views/main/components/b.vue')
+      }
+    ]
   },
   {
     path: '/aa',
     name: 'Aa',
     meta: {
+      title: 'Aa',
       showAside: true
     },
     component: () => import('@/views/es5/js/aa.vue')
   },
   {
     path: '*',
+    name: '404',
     meta: {
+      title: '404',
       showAside: false
     },
     component: error_404
