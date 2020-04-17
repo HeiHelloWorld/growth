@@ -69,19 +69,18 @@ export default {
   data() {
     return {
       username: 'tianfu',
-      // currentChildrenRouter: []
+      currentChildrenRouter: []
     }
   },
   computed: {
-    currentChildrenRouter() {
-      return this.$store.state.currentChildrenRouter
-    }
+
   },
   mounted() {
     // EventBus.$on('asideRouter', params => {
     //   console.log('children', params)
     //   this.currentChildrenRouter = params.secondRouter
     // })
+    this.currentChildrenRouter = JSON.parse(window.sessionStorage.getItem('chlidrenRouterArr'))
   }
 }
 </script>

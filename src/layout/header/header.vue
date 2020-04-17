@@ -40,16 +40,17 @@ export default {
         // EventBus.$emit('asideRouter', {
         //   secondRouter: current_router.children
         // })
-        this.$store.commit('CHANGE_ASIDE', {
-          chlidrenRouterArr: current_router.children
-        })
+        window.sessionStorage.setItem('chlidrenRouterArr', JSON.stringify(current_router.children))
+        // this.$store.commit('change_aside', {
+        //   chlidrenRouterArr: current_router.children
+        // })
       } else {
         // EventBus.$emit('asideRouter', {
         //   secondRouter: []
         // })
-        this.$store.commit('CHANGE_ASIDE', {
-          chlidrenRouterArr: []
-        })
+        // this.$store.commit('change_aside', {
+        //   chlidrenRouterArr: []
+        // })
       }
     }
   }

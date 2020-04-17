@@ -6,8 +6,8 @@ const state = {
 
 const mutations = {
   [CHANGE_ASIDE] (state, {chlidrenRouterArr}) {
-    console.log('vuex', chlidrenRouterArr)
     state.currentChildrenRouter = chlidrenRouterArr
+    console.log('vuex', state.currentChildrenRouter)
   }
 }
 
@@ -17,9 +17,7 @@ const actions = {
   }
 }
 
-const getters = {
-
-}
+const getters = {}
 
 export default {
   state,
