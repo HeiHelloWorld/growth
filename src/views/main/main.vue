@@ -1,8 +1,15 @@
 <template>
   <div class="container">
     <h2>Main</h2>
-    <router-link to="/main/a">go to A</router-link> |
-    <router-link to="/main/b">go to B</router-link>
+    <p>计算结果：
+      <strong>{{ count }}</strong>
+    </p>
+    <el-button size="small" @click="addFn">+</el-button>
+    <el-button size="small" @click="subtractFn">-</el-button>
+    <div style="margin: 30px 0">
+      <router-link to="/main/a">go to A</router-link> |
+      <router-link to="/main/b">go to B</router-link>
+    </div>
     <div class="wrap"><router-view></router-view></div>
     <!-- <el-container style="height: 600px; border: 1px solid #eee">
       <el-container>
@@ -31,6 +38,7 @@
 </template>
 
 <script>
+import { mapState, mapActions, mapMutations } from 'vuex'
 const item = {
   date: '2020-05-20',
   name: 'username',
@@ -38,9 +46,23 @@ const item = {
 };
 export default {
   name: 'Main',
+  computed: {
+    ...mapState({ count: state => state.main.count })
+  },
   data() {
     return {
       tableData: Array(20).fill(item)
+    }
+  },
+  methods: {
+    ...mapActions(['add', 'subtract']),
+    ...mapMutations([ 'set_add_count' ]),
+    addFn() {
+      this.add()
+      // this.set_add_count()
+    },
+    subtractFn() {
+      this.subtract()
     }
   }
 }

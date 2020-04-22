@@ -14,7 +14,7 @@
 </template>
 
 <script>
-
+import { mapActions } from 'vuex'
 // import { EventBus } from '@/event_bus.js'
 
 export default {
@@ -32,18 +32,19 @@ export default {
     this.asyncRouter = this.$router.options.routes.slice(0, -1)
   },
   methods: {
+    ...mapActions(['changeCurrentChildrenRouter']),
     changeHeader(e) {
-      console.log(e)
       const current_router = this.$router.options.routes[e]
       if(current_router.children) {
-        console.log('子路由', current_router.children)
+        // console.log('子路由', current_router.children)
         // EventBus.$emit('asideRouter', {
         //   secondRouter: current_router.children
         // })
-        window.sessionStorage.setItem('chlidrenRouterArr', JSON.stringify(current_router.children))
         // this.$store.commit('change_aside', {
-        //   chlidrenRouterArr: current_router.children
+          //   chlidrenRouterArr: current_router.children
         // })
+        // this.changeCurrentChildrenRouter(current_router.children)
+        window.sessionStorage.setItem('chlidrenRouterArr', JSON.stringify(current_router.children))
       } else {
         // EventBus.$emit('asideRouter', {
         //   secondRouter: []
