@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    es5 => js => aa.vue
+    <div>es5 => js => aa.vue</div>
   </div>
 </template>
 

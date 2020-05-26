@@ -8,7 +8,8 @@
       <router-link :to="item.path">{{item.meta.title}}</router-link>
     </div>
     <div class="avat">
-      <el-avatar :size="50" :src="circleUrl"></el-avatar>
+      <!-- <el-avatar :size="50" :src="circleUrl"></el-avatar> -->
+      <img src="/public/static/images/202.png" />
     </div>
   </div>
 </template>
